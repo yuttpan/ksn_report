@@ -1,0 +1,31 @@
+
+<div class="panel panel-success"  ng-controller="personchk1Ctrl">
+      <div class="panel-heading">
+            <h3 class="panel-title">ประชากรที่ Type Area ไม่ถูกต้อง</h3>
+      </div>
+      <div class="panel-body">
+            
+<table class="table table-striped table-hover">
+    <thead>
+        
+    <tr><th>ที่</th><th>รหัสหน่วยบริการ</th><th>หน่วยบริการ</th><th>ประชากรทั้งหมด</th><th>ERROR</th><th>ร้อยละ</th></tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="p in PersonCheck1">
+
+<td>{{$index + 1}}</td><td>{{p.hoscode}}</td><td>{{p.hosname}}</td><td>{{p.target}}</td><td>{{p.result}}</td>
+
+<td>{{p.result * 100 / p.target | number :'2'}}</td>
+
+
+    </tr>
+
+    </tbody>
+
+</table>
+
+
+
+
+      </div>
+</div>

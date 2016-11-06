@@ -1,0 +1,28 @@
+
+<div class="panel panel-danger" ng-controller="personCtrl">
+      <div class="panel-heading">
+            <h3 class="panel-title">จำนวนประชากรแยกรายหน่วยบริการ(แฟ้ม PERSON)</h3>
+      </div>
+      <div class="panel-body">
+            <table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+          <th>ที่</th><th>รหัสหน่วยบริการ</th><th>หน่วยบริการ</th><th>type_area 1</th><th>type_area 2</th><th>type_area 3</th><th>type_area 4</th><th> รวม</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="o in PersonData">
+            <td>{{$index + 1}}</td>
+            <td>{{o.HOSPCODE}}</td>
+            <td>{{o.hosname}}</td>
+            <td>{{o.p1 | number}}</td>
+            <td>{{o.p2 | number}}</td>
+             <td>{{o.p3 | number}}</td>
+            <td>{{o.p4 | number}}</td>
+            <td>{{o.total | number}}</td>
+        </tr>
+    </tbody>
+</table>
+      </div>
+</div>

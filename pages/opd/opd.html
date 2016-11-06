@@ -1,0 +1,52 @@
+<div ng-controller="OpdCtrl">
+<div class="page-header">
+  <h1>title<small>subtext</small></h1>
+</div>
+
+
+<div>
+
+
+<form class="form-inline">
+  <div class="form-group">
+    <label class="sr-only" for="year">Email address</label>
+    <select id="year"  class="form-control" ng-model="form.year">
+                <option ng-repeat="y in yearList" value="{{y.value}}">{{y.name}}</option>
+            </select>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputPassword3">Password</label>
+    <select name=""  class="form-control" ng-model="form.month">
+                <option ng-repeat="x in monthList" value="{{x.value}}">{{x.name}}</option>
+            </select>
+  </div>
+ 
+  <button type="submit" class="btn btn-default" ng-click="OpdService(form)">ตกลง</button>
+</form>
+
+</div>
+
+<div>
+    
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+          <th>ที่</th><th>รหัสหน่วยบริการ</th><th>หน่วยบริการ</th><th>จำนวนครั้ง</th><th>จำนวนคน</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="o in OpdData">
+            <td>{{$index + 1}}</td>
+            <td>{{o.HOSPCODE}}</td>
+            <td>{{o.hosname}}</td>
+            <td>{{o.v}}</td>
+            <td>{{o.p}}</td>
+        </tr>
+    </tbody>
+</table>
+
+    
+</div>
+</div>
