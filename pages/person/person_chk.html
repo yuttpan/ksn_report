@@ -1,0 +1,31 @@
+
+<div class="panel panel-success"  ng-controller="personchkctrl">
+      <div class="panel-heading">
+            <h3 class="panel-title">{{personChk[0].name}}</h3>
+      </div>
+      <div class="panel-body">
+            
+<table class="table table-striped table-hover">
+    <thead>
+        
+    <tr><th>ที่</th><th>รหัสหน่วยบริการ</th><th>หน่วยบริการ</th><th>ประชากรทั้งหมด</th><th>ERROR</th><th>ร้อยละ</th></tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="p in personChk">
+
+<td>{{$index + 1}}</td><td>{{p.hoscode}}</td><td>{{p.hosname}}</td><td>{{p.target | number}}</td><td>{{p.result |number}}</td>
+
+<td>{{p.result * 100 / p.target | number :'2'}}</td>
+
+
+    </tr>
+
+    </tbody>
+
+</table>
+
+
+
+
+      </div>
+</div>

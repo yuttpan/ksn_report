@@ -5,6 +5,7 @@
   "main": "index.html",
   "dependencies": {
     "angular": "^1.5.8",
+    "angular-google-chart": "^0.1.0",
     "angular-route": "^1.5.8",
     "angular-ui-bootstrap": "^2.2.0",
     "babel-register": "^6.16.3",

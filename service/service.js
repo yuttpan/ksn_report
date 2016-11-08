@@ -13,12 +13,13 @@ var promise = $http({
 return promise ;
 }
 
- this.getPerson = function(){
-//var formData = data ;
+ this.getPersonChk = function(data){
+var formData = data ;
 console.log(formData)
 var promise = $http({
-    method : 'GET',
-    url: './api/getPerson.php',
+    method : 'POST',
+    url: './api/getPersonChk.php',
+    
     data : formData
 
 })

@@ -1,13 +1,13 @@
 <div ng-controller="personCheckCtrl">
 
-    <h3>Static</h3>
+    <h3>ข้อมูลประชากรที่ผิดพลาด (person)</h3>
 
 <div >
     
     
     <div  class="list-group" ng-repeat="p in Personerror">
     
-                        <a  href="#/personcheck{{p.person_error_id}}" class="list-group-item">
+                        <a  href="#/personcheck/{{p.person_error_id}}" class="list-group-item">
     
                             {{p.person_error_name}}<span class="badge badge-info pull-right">{{p.target}} / {{p.result}}</span>
                             <div class="progress progress-bar-success progress-striped">

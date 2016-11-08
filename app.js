@@ -1,6 +1,6 @@
 
 
-var app = angular.module('ksn', ['ngRoute','ui.bootstrap']);
+var app = angular.module('ksn', ['ngRoute','ui.bootstrap','googlechart']);
 
 
 

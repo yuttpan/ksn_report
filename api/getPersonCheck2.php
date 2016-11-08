@@ -1,5 +1,4 @@
 <?php
-header('Access-Control-Allow-Origin: * ' );
 include_once 'db.php';
 // Check connection
 
@@ -10,10 +9,9 @@ if (!$conn) {
 //$_POST = json_decode(file_get_contents("php://input"),TRUE);
 //$hn = isset($_POST['hn']) ? $_POST['hn'] : null;
 //$hn = "%$hn";
- $sql = "select  HOSPCODE,(select hosname from chospital_amp where hoscode = p.HOSPCODE) as hosname,SUM(IF(TYPEAREA='1',1,0))  as p1, SUM(IF(TYPEAREA='2',1,0))  as p2,
-SUM(IF(TYPEAREA='3',1,0))  as p3,SUM(IF(TYPEAREA='4',1,0))  as p4,count(pid) as total
-from person p
-GROUP BY HOSPCODE";
+ $sql = "select hoscode ,hosname ,(select count(pid) from person where hospcode = ch.hoscode) as target,
+(select count(pid) from person where hospcode = ch.hoscode and ABOGROUP not in('1','2','3','4')) as result
+from chospital_amp ch";
 $result = mysqli_query($conn, $sql);
 
 	$query = mysqli_query($conn,$sql);
