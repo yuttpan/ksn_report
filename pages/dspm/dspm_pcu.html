@@ -1,0 +1,26 @@
+
+<div class="panel panel-info" ng-controller="dspmPcuCtrl">
+      <div class="panel-heading">
+            <h3 class="panel-title">รายงานการตรวจพัฒนาการเด็ก 9,18,30,42 เดือน รพ.สต</h3>
+      </div>
+      <div class="panel-body">
+           
+
+
+<table class="table table-bordered table-hover">
+      <thead>
+            <tr>
+                <th>ที่</th>  <th>pid</th><th>ชื่อ - นามสกุ</th><th>อายุ</th><th>หมู่บ้าน</th><th>หมอครอบครัว</th><th>วันที่ตรวจ</th>
+            </tr>
+      </thead>
+      <tbody>
+            <tr ng-repeat="p in DataPcu">
+                  <td>{{$index + 1}}</td><td><a href="#">{{p.pid}}</a></td><td>{{p.fname}}</td><td>{{p.age}}</td><td>{{p.village_name}}</td>
+                  <td></td><td>{{p.date_serv}}</td>
+            </tr>
+      </tbody>
+</table>
+
+
+      </div>
+</div>

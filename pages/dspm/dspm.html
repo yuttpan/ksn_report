@@ -1,0 +1,37 @@
+
+<div class="panel panel-info" ng-controller="dspmMainCtrl">
+      <div class="panel-heading">
+            <h3 class="panel-title">รายงานการตรวจพัฒนาการเด็ก 9,18,30,42 เดือน ปีงบประมาณ 2560</h3>
+      </div>
+      <div class="panel-body">
+            <form class="form-inline">
+  <div class="form-group">
+    <label for="exampleInputName2">เดือน</label>
+    
+    <select name="" id="exampleInputName2" class="form-control" required="required" ng-model="form.month" >
+        <option ng-repeat="x in monthList" value="{{x.value}}">{{x.name}}</option>
+    </select>
+    
+  </div>
+  
+  <button  class="btn btn-default" ng-click="dspm_main(form)">ตกลง</button>
+</form>
+
+
+<table class="table table-bordered table-hover">
+      <thead>
+            <tr>
+                <th>ที่</th>  <th>รหัสหน่วยบริการ</th><th>หน่วยบริการ</th><th>เป้าหมาย</th><th>ผลงาน</th><th>ร้อยละ</th><th></th>
+            </tr>
+      </thead>
+      <tbody>
+            <tr ng-repeat="p in Data">
+                  <td>{{$index + 1}}</td><td> <a href="#/dspm_pcu/{{p.hoscode}}/{{p.month}}">{{p.hoscode}}</a></td><td>{{p.hosname}}</td><td>{{p.target}}</td><td>{{p.result}}</td>
+                  <td>{{p.result * 100 / p.target | number : 2 }}</td><td><div fusioncharts width="200" height="200" type="angulargauge" dataSource="{{myDataSource}}"></td>
+            </tr>
+      </tbody>
+</table>
+
+
+      </div>
+</div>

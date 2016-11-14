@@ -34,5 +34,16 @@ app.config(function($routeProvider) {
         controller : "personCheckCtrl"
 
     })
+     .when("/dspm", {
+        templateUrl : "pages/dspm/dspm.html",
+        controller : "dspmMainCtrl"
+
+    })
+
+    .when("/dspm_pcu/:hospcode/:month", {
+        templateUrl : "pages/dspm/dspm_pcu.html",
+        controller : "dspmPcuCtrl"
+
+    })
    
 });
