@@ -27,7 +27,17 @@
       <tbody>
             <tr ng-repeat="p in Data">
                   <td>{{$index + 1}}</td><td> <a href="#/dspm_pcu/{{p.hoscode}}/{{p.month}}">{{p.hoscode}}</a></td><td>{{p.hosname}}</td><td>{{p.target}}</td><td>{{p.result}}</td>
-                  <td>{{p.result * 100 / p.target | number : 2 }}</td><td><div fusioncharts width="200" height="200" type="angulargauge" dataSource="{{myDataSource}}"></td>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <td>{{p.result * 100 / p.target | number : 2 }}</td>
+                  
             </tr>
       </tbody>
 </table>

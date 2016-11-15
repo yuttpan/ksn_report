@@ -1,0 +1,100 @@
+FusionCharts Logo FusionCharts Suite v3.11.3 Search Docs Get Support Version History TOC Search Demos Chart Gallery Business
+Dashboards Live Examples of Charts Beginner's Guide Getting Started Charts / Gauges / Maps Guide Chart Guide Gauge & Widgets
+Guide Angular Gauge Introduction to Angular Gauge Simple Angular Gauge Example Configuring Angular Gauge Cosmetics Configuring
+Dials Configuring Tick Marks in Angular Gauge Adding Trend Points in Angular Gauge Configuring Angles & Origins Dynamically
+Resizing Gauges Creating Editable Angular Gauge Creating Real-time Angluar Gauge Logging Real-time Messages Linear Gauge
+LED Gauge Thermometer Gauge Cylinder Gauge Bulb Gauge Funnel Chart Pyramid Chart Spark Charts Bullet Graphs Gantt Chart Real-time
+Gauges Map Guide Map Reference Customizing Charts Basic Chart Configurations Advanced Chart Configurations Chart Attributes
+Exporting Charts API API Reference Tutorials Integrating With Your Stack Using with Server Side Languages Using with JavaScript
+Libraries Help Tutorials Troubleshooting Introduction to Angular Gauge Angular gauges are essentially like the speedometer
+or the fuel gauge of a car. They use a radial scale to display the data range and a dial to indicate the data value. An angular
+(also called a meter or dial gauge) is used to display a specific data point using a dial over a radial scale with defined
+limits. Colors can be associated for the sections of the data to suit the application e.g. green for satisfactory, yellow
+for caution, and red for alarm. In this section, you will be introduced to: A simple angular gauge Elements of an angular
+gauge A Simple Angular Gauge A simple angular gauge looks like this: Chart JSON XML HTML
+<html>
+
+<head>
+    <title>My first chart using FusionCharts Suite XT</title>
+    <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+    <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.fint.js?cacheBust=56"></script>
+    <script type="text/javascript">
+  FusionCharts.ready(function(){
+    var fusioncharts = new FusionCharts({
+    type: 'angulargauge',
+    renderAt: 'chart-container',
+    width: '450',
+    height: '300',
+    dataFormat: 'json',
+    dataSource: {
+        "chart": {
+            "caption": "Customer Satisfaction Score",
+            "subcaption": "Last week",
+            "lowerLimit": "0",
+            "upperLimit": "100",
+            "theme": "fint"
+        },
+        "colorRange": {
+            "color": [{
+                "minValue": "0",
+                "maxValue": "50",
+                "code": "#e44a00"
+            }, {
+                "minValue": "50",
+                "maxValue": "75",
+                "code": "#f8bd19"
+            }, {
+                "minValue": "75",
+                "maxValue": "100",
+                "code": "#6baa01"
+            }]
+        },
+        "dials": {
+            "dial": [{
+                "value": "67"
+            }]
+        }
+    }
+}
+);
+    fusioncharts.render();
+});
+</script>
+</head>
+
+<body>
+    <div id="chart-container">FusionCharts XT will load here!</div>
+</body>
+
+</html>
+clip-icon As you can see in the example above, the gauge is created by defining the minimum and maximum values (referred
+to as lower limit and upper limit). Within that scale, you can create various qualitative ranges (color ranges) to classify
+your data. The purpose is to classify a value as belonging to a predetermined range. For example, you might define a range
+called “Best” that consists of values between 60 and 100. Or you might create a range called “Weak” that consists of values
+between 30 and 60. For each range, you can define a color, which helps to visually distinguish the ranges from each other.
+Elements of the gauge An angular gauge consists of the following elements: Color range (radial scale) Dials (data value indicators)
+Tick marks and values Tool-tips Trend points, trend arcs, and trend markers Annotations We will see each of them in detail.
+Let’s first have a look at a standard angular gauge chart enlisting the various basic components: Chart JSON XML HTML 6.8
+9.5 0 2 4 6 8 10 8.9 National Average : 7.2 State Average : 8 Store's Customer Satisfaction Range: 6.8 to 9.5 Customer Satisfaction
+Score Los Angeles Topanga Color Range An angular gauge displays the data values on a radial scale. The radial scale is marked
+by a lower limit and an upper limit, i.e. the minimum and maximum values that can be plotted. Within that scale, you can
+create various sections to classify your data - each section can have a different background color, border color, etc. to
+differentiate them from one another. These sections are called color ranges. In the above chart, we have 3 color ranges marked
+as green, yellow, and red. There can be any number of color ranges. For each color range, you will have to specify the minimum
+and maximum values and the hex color code for the range. Each color range should have it’s own unique range value. So, if
+a range is defined as 0-50, the next range should have the minimum value as 50 necessarily. It cannot have an overlap with
+the previous section. Similarly, if the upper limit of the chart is 100, the last range should have max value set as 100.
+Dials (Data Indicators) Dials are used to point to the desired value on the radial scale. You can point to more than one
+value using multiple dials. Each dial can have its individual properties like color (border and background), width (both
+base and top), radius, and value of the dial. Tick Marks Tick marks are the calibration marks on the radial scale to help
+interpret the reading. There are two types of tick marks which can be drawn on the chart: Major Tick Marks – These are the
+bigger lines around the radial scale. Minor Tick Marks – These are the smaller lines enclosed within the bigger lines. For
+all the tick marks, you can specify the color, height, and thickness. You can also specify the number of tick marks that
+you want to have on the chart. You also have the option to show/hide the tick mark values. Tool-tips For each dial on the
+chart, you can set a tool-tip to display the value indicated by that particular dial. You can customize the tool-tip background
+color and border color. You can also opt to show/hide it. Trend Points / Trend Arcs / Trend Markers The angular gauge allows
+you to define trend points, arcs or markers on the chart. For example, if you wish to highlight a certain value (e.g. last
+year’s average), you could use the trend point feature to do so. Annotations Annotations allow you to draw custom shapes,
+text, or load images on the gauge. With this, you have seen what is an angular gauge and the various elements it comprises
+of. Simple Angular Gauge Example Top Need help? We can't wait to talk to you. But first, please tell us a bit about yourself.
+Name * Email * I am * ... w100Customer Satisfaction Scorekw5Customer Satisfaction Scorea
