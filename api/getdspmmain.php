@@ -19,7 +19,13 @@ $_POST = json_decode(file_get_contents("php://input"),TRUE);
 (select count(pid) from t_dspm where month = month('$m') and HOSPCODE = c.hoscode) as target,
 (SELECT  count(DISTINCT pid) from specialpp 
 where pid in (select LPAD(pid,6,'0') from t_dspm where month =  month('$m')and HOSPCODE = c.hoscode )
-and TIMESTAMPDIFF(month,'$m',DATE_SERV) between '0' and  '2' and DATE_SERV >= '$m') as result,(select '$m') as month
+and TIMESTAMPDIFF(month,'$m',DATE_SERV) between '0' and  '2' and DATE_SERV >= '$m') as result,(select '$m') as month,
+
+(select (SELECT  count(DISTINCT pid) from specialpp 
+where pid in (select LPAD(pid,6,'0') from t_dspm where month =  month('$m')and HOSPCODE = c.hoscode )
+and TIMESTAMPDIFF(month,'$m',DATE_SERV) between '-1' and  '2' and DATE_SERV >= '$m') * 100 / (select count(pid) from t_dspm where month = month('$m') and HOSPCODE = c.hoscode) ) as percent
+
+
  from chospital_amp c";
 $result = mysqli_query($conn, $sql);
 

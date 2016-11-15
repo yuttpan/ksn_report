@@ -36,8 +36,12 @@
                   
                   
                   
-                  <td>{{p.result * 100 / p.target | number : 2 }}</td>
-                  
+                  <td>{{p.percent | number : 2 }}</td>
+                  <td> <div class="progress progress-bar-danger progress-striped">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{p.percent | number : 2}}" aria-valuemin="0" aria-valuemax="100" style="width: {{p.percent | number : 2}}%;">
+                                            {{p.percent | number : 2 }} % 
+                                        </div>
+                                    </div></td>
             </tr>
       </tbody>
 </table>
