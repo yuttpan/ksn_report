@@ -15,7 +15,8 @@ $_POST = json_decode(file_get_contents("php://input"),TRUE);
  $month = isset($_POST['month']) ? $_POST['month'] : null;
 //$hn = "%$hn";
 $date = '2015';
- $sql = "select t.pid,concat(name,'  ',lname) as fname,age,village_name,village_moo ,(select DISTINCT max(DATE_SERV) from specialpp where pid = t.pid ORDER BY DATE_SERV desc limit 1  ) as date_serv
+ $sql = "select t.pid,concat(name,'  ',lname) as fname,age,village_name,village_moo ,
+ (select DISTINCT max(DATE_SERV) from specialpp where pid = t.pid and TIMESTAMPDIFF(month,'$month',DATE_SERV) between '0' and  '2' ORDER BY DATE_SERV desc limit 1  ) as date_serv
  from t_dspm t
 LEFT OUTER JOIN person p on t.pid = p.pid and p.HOSPCODE = '$hospcode'
 LEFT OUTER JOIN home h on p.hid = h.hid and p.HOSPCODE = h.HOSPCODE

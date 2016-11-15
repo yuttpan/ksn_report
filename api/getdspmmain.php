@@ -15,12 +15,11 @@ $_POST = json_decode(file_get_contents("php://input"),TRUE);
  $m = isset($_POST['month']) ? $_POST['month'] : null;
 //$hn = "%$hn";
 // $month = $m ;
- $sql = "select hoscode,hosname,
+  $sql = "select hoscode,hosname,
 (select count(pid) from t_dspm where month = month('$m') and HOSPCODE = c.hoscode) as target,
-(SELECT  count(distinct pid) from specialpp 
-where pid in (select pid from t_dspm where month = month('$m') and HOSPCODE = c.hoscode )) as result,(select '$m') as month
-
-
+(SELECT  count(DISTINCT pid) from specialpp 
+where pid in (select LPAD(pid,6,'0') from t_dspm where month =  month('$m')and HOSPCODE = c.hoscode )
+and TIMESTAMPDIFF(month,'$m',DATE_SERV) between '0' and  '2' and DATE_SERV >= '$m') as result,(select '$m') as month
  from chospital_amp c";
 $result = mysqli_query($conn, $sql);
 
